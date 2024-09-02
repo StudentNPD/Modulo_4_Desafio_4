@@ -19,4 +19,10 @@ class Alternativa:
     def modificarAyuda(self, nueva_ayuda):
         self._ayuda = nueva_ayuda
 
-    
+    # mostrar contenido y ayuda de la alternativa
+    def mostrar(self):
+        muestra = (f"Contenido: {self._contenido}")
+        if self._ayuda:
+            muestra += f"\nAyuda: {self._ayuda}" #coincatena la ayuda al contenido en una nueva linea
+        return muestra
+    #print(mostrar)
