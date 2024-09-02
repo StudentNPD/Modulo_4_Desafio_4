@@ -11,10 +11,12 @@ class Alternativa:
     def set_contenido(self, nuevo_contenido):
         self._contenido = nuevo_contenido
 
-    # consulta el contenido de la ayuda
+    # consulta la ayuda de la alternativa
     def get_ayuda(self):
         return self._ayuda
     
-    # modifica el contenido de la ayua
+    # modifica la ayuda de la alterniatica
     def set_ayuda(self, nueva_ayuda):
         self._ayuda = nueva_ayuda
+
+    
