@@ -22,3 +22,21 @@ class Pregunta:
     def modificarAyuda(self, nuevo_ayuda):
         self._ayuda = nuevo_ayuda
 
+    #consulta si es requerida la pregunta (ojo es boleano)
+    def getEsRequerida(self):
+        return self._esRequerida
+
+    #modifica si es requerida la pregunta (ojo es boleano)
+    def setEsRequerida(self, esRequerida):
+        self._es_requerida = esRequerida
+
+
+    #consulta las alternativas de la pregunta (tipo lista)
+    def getAlternativas(self):
+        return self._alternativas
+
+    #def agregar_alternativa ???
+
+
+    #Muestra la pregunta, su enunciado, ayuda y sus alternativas
+    #def mostrar
