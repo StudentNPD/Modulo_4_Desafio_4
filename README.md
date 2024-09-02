@@ -1,4 +1,4 @@
-# Owner-avatar-Modulo_4_Desafio_4
+Modulo_4_Desafio_4
 ------------------------------------------
 
 ## Prerequisitos
