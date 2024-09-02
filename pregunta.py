@@ -33,13 +33,15 @@ class Pregunta:
         self._es_requerida = esRequerida
 
     # consulta las alternativas de la pregunta (tipo lista)
+    def getAlternativas(self):
+        return self._alternativas
+
+    # Agrega nueva alternativa a la pregunta
     def agregar_alternativa(self, alternativa_dict):
         alternativa = Alternativa(
             alternativa_dict["contenido"], alternativa_dict.get("ayuda")
         )
         self._alternativas.append(alternativa)
-
-    # def agregar_alternativa ???
 
     # Muestra la pregunta, su enunciado, ayuda y sus alternativas
     # def mostrar(self)
