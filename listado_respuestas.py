@@ -6,9 +6,9 @@ class ListadoRespuestas:
         self.__lista_respuestas = []
 
     @property
-    def usuario(self) -> "Usuario":
+    def getUsuario(self) -> "Usuario":
         return self.__usuario
 
     @property
-    def lista_respuestas(self) -> list:
+    def getRespuestas(self) -> list:
         return self.__lista_respuestas
