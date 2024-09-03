@@ -5,14 +5,16 @@ class Usuario:
         self.__region = region
 
     @property
-    def correo(self) -> str:
+    def getCorreo(self) -> str:
         return self.__correo
 
     @property
-    def edad(self) -> int:
+    def getEdad(self) -> int:
         return self.__edad
 
     @property
-    def region(self) -> int:
+    def getRegion(self) -> int:
         return self.__region
+
+
 
