@@ -44,4 +44,13 @@ class Pregunta:
         self._alternativas.append(alternativa)
 
     # Muestra la pregunta, su enunciado, ayuda y sus alternativas
-    # def mostrar(self)
+    def mostrar(self):
+        muestra = f"Enunciado: {self._enunciado}"
+        if self._ayuda:
+            muestra += f"\nAyuda: {self._ayuda}"
+        muestra += f"\nRequerida: {'Sí' if self._esRequerida else 'No'}"
+        muestra += "\nAlternativas:"
+        # recorre las alternativas mostrandolas
+        for i, alternativa in enumerate(self._alternativas, 1):
+            muestra += f"\n  {i}. {alternativa.mostrar()}"
+        return muestra
