@@ -29,3 +29,7 @@ class Usuario:
         self.__region = nueva_region
 
 
+    def contestarEncuesta(self, encuesta) -> None:
+
+        print(f"Respondiendo a la encuesta: {encuesta.nombre}")
+
