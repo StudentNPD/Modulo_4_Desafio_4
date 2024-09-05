@@ -26,7 +26,8 @@ El proyecto está organizado en los siguientes archivos:
 El diagrama de clases del sistema ilustra las relaciones entre las diferentes clases:
 
 ![Diagrama de Clases](https://storage.googleapis.com/gweb-uniblog-publish-prod/images/diagram_classes.png)
-![pythn](./Diagrama de Clases.drawio.png)
+
+![pythn](./diagrama.png)
 
 ### Clases principales:
 1. `Alternativa`: Representa las opciones de respuesta para una pregunta.
