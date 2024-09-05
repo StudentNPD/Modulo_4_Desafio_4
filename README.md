@@ -1,4 +1,4 @@
-# Desafio Diagrama de Clases
+# Desafio 4 - Diagrama de Clases
 
 ## Descripción
 Este proyecto implementa un sistema de gestión de encuestas que permite crear y contestar encuestas con diferentes tipos de restricciones. Desarrollado en Python utilizando programación orientada a objetos, el sistema maneja encuestas, preguntas, alternativas, usuarios y sus respuestas.
