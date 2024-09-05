@@ -1,5 +1,3 @@
-Modulo_4_Desafio_4
-
 # Sistema de Gestión de Encuestas
 
 ## Descripción
@@ -25,8 +23,6 @@ El proyecto está organizado en los siguientes archivos:
 ## Diagrama de Clases
 El diagrama de clases del sistema ilustra las relaciones entre las diferentes clases:
 
-![Diagrama de Clases](https://storage.googleapis.com/gweb-uniblog-publish-prod/images/diagram_classes.png)
-
 ![pythn](./diagrama.png)
 
 ### Clases principales:
@@ -37,16 +33,6 @@ El diagrama de clases del sistema ilustra las relaciones entre las diferentes cl
 5. `EncuestaLimitadaRegion`: Encuesta con restricciones de región.
 6. `Usuario`: Representa a un usuario del sistema.
 7. `ListadoRespuestas`: Almacena las respuestas de un usuario a una encuesta.
-
-## Contribuir
-Si deseas contribuir al proyecto, por favor:
-
-1. Haz un fork del repositorio
-2. Crea una nueva rama (`git checkout -b feature/AmazingFeature`)
-3. Haz commit de tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Haz push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
 
 ------------------------------------------
 
@@ -59,11 +45,11 @@ Si deseas contribuir al proyecto, por favor:
 
 ***Windows***
 
-`python encuesta.py`
+`python main.py`
 
 ***Linux & iOS***
 
-`python3 encuesta.py`
+`python3 main.py`
 
 ------------------------------------------
 ## Colaboradores
