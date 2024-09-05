@@ -1,85 +1,161 @@
 from pregunta import Pregunta
-from alternativa import Alternativa
-from listado_respuestas import ListadoRespuestas
-from usuario import Usuario
-
-# encuesta(nombre, listado_preguntas, listado_respuestas)
-nombre_encuesta = input("Ingrese el nombre de la encuesta:\n")
-listado_preguntas = []
-listado_respuestas = []
-
-
-print("WELCOME TO THIS APPLICATION")
-mi_correo = input("Ingrese su correo:\n")
-mi_edad = input("Ingrese su edad:\n")
-mi_region = input("Ingrese su Region:\n")
-
-
-mi_usuario = Usuario("gato@gmail.com", 18, 5)
-
-# Menu: 
-# 1) Consultar nombre de la encuesta 
-# 2) Modificar encuesta //
-# 3) Responder encuesta
-# 4) Monstrar encuesta
-
-# Menu Pregunta:
-# 1) Modificar Enunciado
-# 2) Modificar alternativa
-# 3) 
-
-# encuesta 1 
-pregunta_1 = Pregunta("gato gato") 
-alternativa_1 = dict({'contenido':'gato', 'ayuda':'gato1'})
-alternativa_2 = dict({'contenido':'gato', 'ayuda':'gato1'})
-alternativa_3 = dict({'contenido':'gato', 'ayuda':'gato1'})
-pregunta_1.agregar_alternativa(alternativa_1)
-pregunta_1.agregar_alternativa(alternativa_2)
-pregunta_1.agregar_alternativa(alternativa_3)
-#print(pregunta_1.mostrar())
-listado_preguntas.append(pregunta_1)
-listado_preguntas.append(pregunta_1)
-# encuesta 2 
-# encuesta 3
-
-
 
 class Encuesta:
-    def __init__(self, nombre_encuesta, listado_preguntas ):
+    """Representa una encuesta con un nombre, un listado de preguntas y un listado de respuestas.
+
+    Esta clase permite gestionar una encuesta, que incluye un nombre, un 
+    conjunto de preguntas y un registro de las respuestas dadas por los usuarios.
+
+    Args:
+        nombre_encuesta (str): El nombre de la encuesta.
+        listado_preguntas (list[Pregunta]): Una lista de instancias de la 
+            clase Pregunta que conforman la encuesta.
+    """
+
+    def __init__(self, nombre_encuesta, listado_preguntas):
+        """Inicializa una nueva instancia de la clase Encuesta.
+
+        Args:
+            nombre_encuesta (str): El nombre de la encuesta.
+            listado_preguntas (list[Pregunta]): Una lista de preguntas que 
+                conforman la encuesta.
+        """
         self._nombre_encuesta = nombre_encuesta
         self._listado_preguntas = listado_preguntas
-        self._listado_respuestas = [] 
-    
-    def get_nombre(self):
-        return nombre_encuesta
+        self._listado_respuestas = []
 
-    def set_nombre(nombre_encuesta):
-        print(nombre_encuesta)
-        nuevo_nombre= input("Ingrese el nuevo nombre:")
-        nombre_encuesta = nuevo_nombre      
-    def agregar_respuestas(self, listado_respuestas ):
-        # agregar listado de respuestas
-        self._listado_respuestas = listado_respuestas
-    
-    def get_listado_preguntas(self):
-        preguntas = ""
-        for pregunta in listado_preguntas:
-            preguntas += pregunta.mostrar()
-        return preguntas
-    
-encuesta = Encuesta(nombre_encuesta,listado_preguntas)
-print(encuesta.get_listado_preguntas())
-#class EncuestaLimitadaEdad(Encuesta):
-#        #edad_minima, edad_maxima
-#        if edad >= 18: 
-#          #  print lista_mayor de edad 
-#            
-#        def agregar_respuestas(self):
-#            #agregar listado de respuestas considerando la edad
-#class EncuestaLimitadaRegion(Encuesta):
-#    #lista regiones
-#    
-#    def agregar_respuestas(self):
-#        #agregar listado de respuestas considerando la region
-#
+    def getNombre(self):
+        """Obtiene el nombre de la encuesta.
+
+        Returns:
+            str: El nombre de la encuesta.
+        """
+        return self._nombre_encuesta
+
+    def setNombre(self, nuevo_nombre):
+        """Modifica el nombre de la encuesta.
+
+        Args:
+            nuevo_nombre (str): El nuevo nombre que reemplazará al actual.
+        """
+        self._nombre_encuesta = nuevo_nombre
+
+    def agregar_respuestas(self, listado_respuestas):
+        """Agrega un conjunto de respuestas al listado de respuestas de la encuesta.
+
+        Args:
+            listado_respuestas: Una instancia que contiene las respuestas 
+                proporcionadas por un usuario a las preguntas de la encuesta.
+        """
+        self._listado_respuestas.append(listado_respuestas)
+
+    def getListadoPreguntas(self):
+        """Obtiene el listado de preguntas de la encuesta.
+
+        Returns:
+            list[Pregunta]: La lista de preguntas que conforman la encuesta.
+        """
+        return self._listado_preguntas
+
+    def mostrar(self):
+        """Muestra el nombre de la encuesta y todas sus preguntas.
+
+        Returns:
+            str: Una cadena que representa el nombre de la encuesta y una 
+            lista de las preguntas contenidas en ella.
+        """
+        muestra = f"Nombre de la encuesta: {self._nombre_encuesta}\n"
+        muestra += "Preguntas:\n"
+        for i, pregunta in enumerate(self._listado_preguntas, 1):
+            muestra += f"{i}. {pregunta.mostrar()}\n"
+        return muestra
+
+
+class EncuestaLimitadaEdad(Encuesta):
+    """Representa una encuesta limitada por un rango de edad de los usuarios.
+
+    Esta clase extiende la funcionalidad de la clase Encuesta para imponer 
+    restricciones basadas en la edad de los usuarios. Solo se aceptan 
+    respuestas de usuarios dentro del rango de edad especificado.
+
+    Args:
+        nombre_encuesta (str): El nombre de la encuesta.
+        listado_preguntas (list[Pregunta]): Una lista de preguntas que 
+            conforman la encuesta.
+        edad_minima (int): La edad mínima requerida para participar en la encuesta.
+        edad_maxima (int): La edad máxima permitida para participar en la encuesta.
+    """
+
+    def __init__(self, nombre_encuesta, listado_preguntas, edad_minima, edad_maxima):
+        """Inicializa una nueva instancia de la clase EncuestaLimitadaEdad.
+
+        Args:
+            nombre_encuesta (str): El nombre de la encuesta.
+            listado_preguntas (list[Pregunta]): Una lista de preguntas que 
+                conforman la encuesta.
+            edad_minima (int): La edad mínima requerida para participar.
+            edad_maxima (int): La edad máxima permitida para participar.
+        """
+        super().__init__(nombre_encuesta, listado_preguntas)
+        self._edad_minima = edad_minima
+        self._edad_maxima = edad_maxima
+
+    def agregar_respuestas(self, listado_respuestas):
+        """Agrega respuestas a la encuesta si el usuario está dentro del rango de edad permitido.
+
+        Args:
+            listado_respuestas: Una instancia que contiene las respuestas 
+                proporcionadas por un usuario a las preguntas de la encuesta.
+
+        Raises:
+            ValueError: Si el usuario no está dentro del rango de edad permitido.
+        """
+        if self._edad_minima <= listado_respuestas.getUsuario.getEdad <= self._edad_maxima:
+            super().agregar_respuestas(listado_respuestas)
+        else:
+            print("El usuario no cumple con el rango de edad para esta encuesta.")
+
+
+class EncuestaLimitadaRegion(Encuesta):
+    """Representa una encuesta limitada por regiones geográficas de los usuarios.
+
+    Esta clase extiende la funcionalidad de la clase Encuesta para imponer 
+    restricciones basadas en la región geográfica de los usuarios. Solo se 
+    aceptan respuestas de usuarios que pertenecen a las regiones especificadas.
+
+    Args:
+        nombre_encuesta (str): El nombre de la encuesta.
+        listado_preguntas (list[Pregunta]): Una lista de preguntas que 
+            conforman la encuesta.
+        regiones (list[int]): Una lista de regiones válidas para participar 
+            en la encuesta.
+    """
+
+    def __init__(self, nombre_encuesta, listado_preguntas, regiones):
+        """Inicializa una nueva instancia de la clase EncuestaLimitadaRegion.
+
+        Args:
+            nombre_encuesta (str): El nombre de la encuesta.
+            listado_preguntas (list[Pregunta]): Una lista de preguntas que 
+                conforman la encuesta.
+            regiones (list[int]): Una lista de regiones válidas para participar 
+                en la encuesta.
+        """
+        super().__init__(nombre_encuesta, listado_preguntas)
+        self._regiones = regiones
+
+    def agregar_respuestas(self, listado_respuestas):
+        """Agrega respuestas a la encuesta si el usuario pertenece a una región permitida.
+
+        Args:
+            listado_respuestas: Una instancia que contiene las respuestas 
+                proporcionadas por un usuario a las preguntas de la encuesta.
+
+        Raises:
+            ValueError: Si el usuario no pertenece a una región permitida.
+        """
+        if listado_respuestas.getUsuario.getRegion in self._regiones:
+            super().agregar_respuestas(listado_respuestas)
+        else:
+            print("El usuario no pertenece a una región válida para esta encuesta.")
 
