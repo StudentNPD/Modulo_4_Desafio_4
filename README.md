@@ -45,13 +45,7 @@ Si deseas contribuir al proyecto, por favor:
 4. Haz push a la rama (`git push origin feature/AmazingFeature`)
 5. Abre un Pull Request
 
-## Licencia
-Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
 
-## Contacto
-Tu Nombre - [@tu_twitter](https://twitter.com/tu_twitter) - email@example.com
-
-Link del proyecto: [https://github.com/tu-usuario/sistema-gestion-encuestas](https://github.com/tu-usuario/sistema-gestion-encuestas)
 ------------------------------------------
 
 ## Prerequisitos
